@@ -26,7 +26,6 @@ struct TabBar: View {
                 }, label: {
                     
                     VStack(alignment: .center, spacing: 8, content: {
-
                             
                             Image(index.rawValue)
                                 .renderingMode(.template)
