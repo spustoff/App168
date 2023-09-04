@@ -31,11 +31,10 @@ struct LoadingView: View {
             
             VStack {
                 
-                Image("logo")
-                
-                Text("Quantum AI")
-                    .foregroundColor(.white)
-                    .font(.system(size: 28, weight: .bold))
+                Image("logo123")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 150)
             }
             
             VStack {

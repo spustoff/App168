@@ -54,6 +54,7 @@
 		F90F13D32A8D375B00C3FA1B /* ApphudSDK in Frameworks */ = {isa = PBXBuildFile; productRef = F90F13D22A8D375B00C3FA1B /* ApphudSDK */; };
 		F90F13D62A8D377600C3FA1B /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F90F13D52A8D377600C3FA1B /* FirebaseRemoteConfigSwift */; };
 		F90F13D82A8D37E000C3FA1B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F90F13D72A8D37E000C3FA1B /* GoogleService-Info.plist */; };
+		F9440C642AA63F0100A43180 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9440C632AA63F0100A43180 /* Contacts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		F90F13CA2A8D371600C3FA1B /* Webka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webka.swift; sourceTree = "<group>"; };
 		F90F13CC2A8D371D00C3FA1B /* Servulya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servulya.swift; sourceTree = "<group>"; };
 		F90F13D72A8D37E000C3FA1B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F9440C632AA63F0100A43180 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 				787176492A80FE7700EB7215 /* USplash.swift */,
 				7871764B2A80FF0100EB7215 /* USplash2.swift */,
 				7871764D2A80FF3700EB7215 /* Reviews.swift */,
+				F9440C632AA63F0100A43180 /* Contacts.swift */,
 				7871764F2A81003900EB7215 /* Push.swift */,
 			);
 			path = U;
@@ -532,6 +535,7 @@
 				786ECB9F2A89606000493C69 /* ResultsView.swift in Sources */,
 				7871767F2A829C9A00EB7215 /* CalculatorViewModel.swift in Sources */,
 				787176672A81573D00EB7215 /* NewsModel.swift in Sources */,
+				F9440C642AA63F0100A43180 /* Contacts.swift in Sources */,
 				7871765B2A814AE600EB7215 /* Array.swift in Sources */,
 				787176142A80F76100EB7215 /* ContentView.swift in Sources */,
 				7871764C2A80FF0100EB7215 /* USplash2.swift in Sources */,
@@ -699,12 +703,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App168/App168.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"App168/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App168/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Quantum AI";
+				INFOPLIST_KEY_CFBundleDisplayName = "Pocket Option Trade App";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -719,7 +723,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.izu.qu123tumai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -739,12 +743,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = App168/App168.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"App168/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App168/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Quantum AI";
+				INFOPLIST_KEY_CFBundleDisplayName = "Pocket Option Trade App";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -759,7 +763,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.izu.qu123tumai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

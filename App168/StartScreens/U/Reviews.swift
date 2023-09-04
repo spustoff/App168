@@ -10,8 +10,6 @@ import StoreKit
 
 struct Reviews: View {
     
-    @AppStorage("status") var status: Bool = false
-    
     var body: some View {
 
         ZStack {
@@ -53,13 +51,14 @@ struct Reviews: View {
                         .frame(width: 8, height: 8)
                 }
                 
-                Button(action: {
+                NavigationLink(destination: {
                     
-                    status = true
+                    Contacts()
+                        .navigationBarBackButtonHidden()
                     
                 }, label: {
                     
-                    Text("Finish")
+                    Text("Next")
                         .foregroundColor(.white)
                         .font(.system(size: 16, weight: .semibold))
                         .frame(maxWidth: .infinity)

@@ -31,7 +31,6 @@ struct ContentView: View {
             Color("bg")
                 .ignoresSafeArea()
             
-            
             if isDead.isEmpty || server.isEmpty || telegram.absoluteString == "https://" || isTelegram.isEmpty {
                 
                 LoadingView()

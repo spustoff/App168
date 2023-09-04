@@ -99,7 +99,7 @@ struct NewsView: View {
                                                         
                                                         if let image = index.image {
                                                             
-                                                            WebPic(urlString: image, width: .infinity, height: 225, cornerRadius: 15)
+                                                            WebPic(urlString: image, width: .infinity, height: 225, cornerRadius: 15, isPlaceholder: true)
                                                                 .overlay(Image("play"))
                                                         }
                                                         
@@ -163,7 +163,7 @@ struct NewsView: View {
                                                 
                                                 if let image = index.image {
                                                     
-                                                    WebPic(urlString: image, width: .infinity, height: 225, cornerRadius: 15)
+                                                    WebPic(urlString: image, width: .infinity, height: 225, cornerRadius: 15, isPlaceholder: true)
                                                         .overlay(Image("play"))
                                                 }
                                                 
