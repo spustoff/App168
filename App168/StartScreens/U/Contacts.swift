@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Amplitude
 import Alamofire
 
 struct Contacts: View {
@@ -151,6 +152,8 @@ struct Contacts: View {
                         ForEach(linksArray.filter{!($0.1 ?? "").isEmpty}, id: \.0) { (label, link) in
                             
                             Button(action: {
+                                
+                                Amplitude.instance().logEvent("additional_screens_opened_\(label ?? "nil")")
                                 
                                 withAnimation(.spring()) {
                                     

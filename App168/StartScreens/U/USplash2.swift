@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct USplash2: View {
+    
+    let isContacts: Bool
+    
     var body: some View {
         
         ZStack {
@@ -51,7 +54,7 @@ struct USplash2: View {
                 
                 NavigationLink(destination: {
                     
-                    Reviews()
+                    Reviews(isContacts: isContacts)
                         .navigationBarBackButtonHidden()
                     
                 }, label: {
@@ -72,6 +75,6 @@ struct USplash2: View {
 
 struct USplash2_Previews: PreviewProvider {
     static var previews: some View {
-        USplash2()
+        USplash2(isContacts: false)
     }
 }

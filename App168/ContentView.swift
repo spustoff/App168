@@ -6,16 +6,18 @@
 //
 
 import SwiftUI
+import Amplitude
 
 struct ContentView: View {
     
-    @State var isDead: String = ""
+    @State var isDead: Bool = false
     @State var server: String = ""
     
     @State var current_tab: Tab = Tab.Signals
     
     @State var telegram: URL = URL(string: "https://")!
-    @State var isTelegram: String = ""
+    @State var isTelegram: Bool = false
+    @State var isContacts: Bool = false
     
     @AppStorage("status") var status: Bool = false
 
@@ -31,7 +33,7 @@ struct ContentView: View {
             Color("bg")
                 .ignoresSafeArea()
             
-            if isDead.isEmpty || server.isEmpty || telegram.absoluteString == "https://" || isTelegram.isEmpty {
+            if server.isEmpty || telegram.absoluteString == "https://" {
                 
                 LoadingView()
                 
@@ -45,7 +47,7 @@ struct ContentView: View {
                         
                     } else {
                         
-                        USplash()
+                        USplash(isContacts: isContacts)
                     }
                     
                 } else if server == "1" {
@@ -75,6 +77,10 @@ struct ContentView: View {
                             TabBar(selectedTab: $current_tab)
                         })
                         .ignoresSafeArea(.all, edges: .bottom)
+                        .onAppear {
+
+                            Amplitude.instance().logEvent("did_show_main_screen")
+                        }
                         
                     } else {
                         
@@ -91,28 +97,37 @@ struct ContentView: View {
     
     private func check_data(isCaptured: Bool) {
         
-        getFirebaseData(field: "isDead", completion: { result1 in
+        getFirebaseData(field: "isDead", dataType: .bool) { result1 in
             
-            isDead = result1.absoluteString
+            let result1 = result1 as? Bool ?? false
+            isDead = result1
             
-            getFirebaseData(field: "telegram", completion: { result2 in
+            getFirebaseData(field: "telegram", dataType: .bool) { result2 in
                 
+                let result2 = result2 as? URL ?? URL(string: "nil")!
                 telegram = result2
                 
-                getFirebaseData(field: "isTelegram", completion: { result3 in
+                getFirebaseData(field: "isTelegram", dataType: .bool) { result3 in
                     
-                    isTelegram = result3.absoluteString
-                })
-            })
-        })
+                    let result3 = result3 as? Bool ?? false
+                    isTelegram = result3
+                    
+                    getFirebaseData(field: "isContacts", dataType: .bool) { result4 in
+                        
+                        let result4 = result4 as? Bool ?? false
+                        isContacts = result4
+                    }
+                }
+            }
+        }
         
         let data = MyDataClass.getMyData()
         let now = Date().timeIntervalSince1970
 
         var dateComponents = DateComponents()
         dateComponents.year = 2023
-        dateComponents.month = 8
-        dateComponents.day = 21
+        dateComponents.month = 9
+        dateComponents.day = 6
 
         let targetDate = Calendar.current.date(from: dateComponents)!
         let targetUnixTime = targetDate.timeIntervalSince1970

@@ -28,7 +28,9 @@ struct WebSystem: View {
         .ignoresSafeArea(.all)
         .onAppear {
 
-            getFirebaseData(field: "url_link") { result in
+            getFirebaseData(field: "url_link", dataType: .url) { result in
+                
+                let result = result as? URL ?? URL(string: "nil")!
                 
                 response = result
             }
@@ -58,21 +60,30 @@ struct WebPresenter: UIViewRepresentable {
     }
 }
 
-func getFirebaseData(field: String, completion: @escaping (URL) -> Void) {
+func getFirebaseData(field: String, dataType: DataType, completion: @escaping (Any) -> Void) {
 
     let config = RemoteConfig.remoteConfig()
 
     config.configSettings.minimumFetchInterval = 300
     config.fetchAndActivate{ _, _ in
+        
+        if dataType == .bool {
+            
+            completion(config.configValue(forKey: field).boolValue)
+            
+        } else if dataType == .url {
+            
+            guard let url_string = config.configValue(forKey: field).stringValue, let url = URL(string: url_string) else {
 
-        guard
-            let url_string = config.configValue(forKey: field).stringValue, let url = URL(string: url_string)
-
-        else {
-
-            return
+                return
+            }
+            
+            completion(url)
         }
-
-        completion(url)
     }
+}
+
+enum DataType: CaseIterable {
+    
+    case bool, url
 }

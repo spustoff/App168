@@ -10,6 +10,10 @@ import StoreKit
 
 struct Reviews: View {
     
+    @AppStorage("status") var status: Bool = false
+    
+    let isContacts: Bool
+    
     var body: some View {
 
         ZStack {
@@ -51,21 +55,41 @@ struct Reviews: View {
                         .frame(width: 8, height: 8)
                 }
                 
-                NavigationLink(destination: {
+                if isContacts {
                     
-                    Contacts()
-                        .navigationBarBackButtonHidden()
+                    NavigationLink(destination: {
+                        
+                        Contacts()
+                            .navigationBarBackButtonHidden()
+                        
+                    }, label: {
+                        
+                        Text("Next")
+                            .foregroundColor(.white)
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 50)
+                            .background(RoundedRectangle(cornerRadius: 9).fill(Color("p")))
+                    })
+                    .padding()
                     
-                }, label: {
+                } else {
                     
-                    Text("Next")
-                        .foregroundColor(.white)
-                        .font(.system(size: 16, weight: .semibold))
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 50)
-                        .background(RoundedRectangle(cornerRadius: 9).fill(Color("p")))
-                })
-                .padding()
+                    Button(action: {
+                        
+                        status = true
+                        
+                    }, label: {
+                        
+                        Text("Next")
+                            .foregroundColor(.white)
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 50)
+                            .background(RoundedRectangle(cornerRadius: 9).fill(Color("p")))
+                    })
+                    .padding()
+                }
             }
         }
         .ignoresSafeArea(.all, edges: .top)
@@ -79,6 +103,6 @@ struct Reviews: View {
 
 struct Reviews_Previews: PreviewProvider {
     static var previews: some View {
-        Reviews()
+        Reviews(isContacts: false)
     }
 }
